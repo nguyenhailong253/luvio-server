@@ -15,3 +15,9 @@ Lightweight server providing property data from Domain's API
 `django-admin startproject project-name`
 `python3 manage.py startapp app-name`
 [More about django-admin vs manage.py](https://docs.djangoproject.com/en/3.2/ref/django-admin/)
+
+# Making model changes
+- Change your models in `models.py`
+- Run `python3 manage.py makemigrations` to create migrations for those changes
+- Run `python3 sqlmigrate app-name migration-number` to view SQL query to-be-executed by `migrate` command
+- Run `python3 manage.py migrate` to apply those changes to DB
