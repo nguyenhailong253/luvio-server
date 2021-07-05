@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import os
 
 def index(request):
+    test_client_id = os.getenv('DOMAIN_CLIENT_ID')
+    print(test_client_id)
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def detail(request, question_id):

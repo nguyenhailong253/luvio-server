@@ -1,0 +1,1 @@
+domain_auth_url = 'https://auth.domain.com.au/v1/connect/token'
