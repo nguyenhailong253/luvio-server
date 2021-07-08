@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "6516edfa-6c82-4025-a306-e9adb3a389b1",
+		"name": "Domain API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Address Suggestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_properties}}/_suggest?terms=9/168%20power%20street&channel=All ",
+					"host": [
+						"{{domain_url_properties}}"
+					],
+					"path": [
+						"_suggest"
+					],
+					"query": [
+						{
+							"key": "terms",
+							"value": "9/168%20power%20street"
+						},
+						{
+							"key": "channel",
+							"value": "All "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agencies}}/22473",
+					"host": [
+						"{{domain_url_agencies}}"
+					],
+					"path": [
+						"22473"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listings of Agency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agencies}}/22473/listings",
+					"host": [
+						"{{domain_url_agencies}}"
+					],
+					"path": [
+						"22473",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agency Summary by Criteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agencies}}?q=in:all&pageNumber=1&pageSize=100",
+					"host": [
+						"{{domain_url_agencies}}"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "in:all"
+						},
+						{
+							"key": "pageNumber",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agents}}/1287957",
+					"host": [
+						"{{domain_url_agents}}"
+					],
+					"path": [
+						"1287957"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listings of Agent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agents}}/1287957/listings",
+					"host": [
+						"{{domain_url_agents}}"
+					],
+					"path": [
+						"1287957",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Agent by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_agents}}/search?query=John",
+					"host": [
+						"{{domain_url_agents}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "John"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Listing Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_listings}}/locations?terms=camber",
+					"host": [
+						"{{domain_url_listings}}"
+					],
+					"path": [
+						"locations"
+					],
+					"query": [
+						{
+							"key": "terms",
+							"value": "camber"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_url_listings}}/6311594",
+					"host": [
+						"{{domain_url_listings}}"
+					],
+					"path": [
+						"6311594"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Business Listings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"searchMode\": \"forSale\",\n\t\"locations\": [\n\t\t{\n\t\t\t\"state\": \"nsw\"\n\t\t}],\n\t\"price\": {\n\t\t\"max\": 500000\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain_url_listings}}/business/_search",
+					"host": [
+						"{{domain_url_listings}}"
+					],
+					"path": [
+						"business",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Commercial Listings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"searchMode\": \"forSale\",\n\t\"parking\": {\n\t\t\"type\": \"onSite\",\n\t\t\"carspaces\": 5\n\t},\n\t\"price\": {\n\t\t\"max\": 1000000,\n\t\t\"type\": \"totalAmount\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain_url_listings}}/commercial/_search",
+					"host": [
+						"{{domain_url_listings}}"
+					],
+					"path": [
+						"commercial",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Residential Listings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"listingType\":\"Sale\",\n  \"propertyTypes\":[\n    \"House\",\n    \"NewApartments\"\n  ],\n  \"minBedrooms\":3,\n  \"minBathrooms\":2,\n  \"minCarspaces\":1,\n  \"locations\":[\n    {\n      \"state\":\"NSW\",\n      \"region\":\"\",\n      \"area\":\"\",\n      \"suburb\":\"Newtown\",\n      \"postCode\":\"\",\n      \"includeSurroundingSuburbs\":false\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain_url_listings}}/residential/_search",
+					"host": [
+						"{{domain_url_listings}}"
+					],
+					"path": [
+						"residential",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Address IDs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/addressLocators?searchLevel=Suburb&streetNumber=100&streetName=Harris&streetType=Street&suburb=Pyrmont&state=NSW&postcode=2009",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"addressLocators"
+					],
+					"query": [
+						{
+							"key": "searchLevel",
+							"value": "Suburb"
+						},
+						{
+							"key": "searchLevel",
+							"value": "Address",
+							"disabled": true
+						},
+						{
+							"key": "streetNumber",
+							"value": "100"
+						},
+						{
+							"key": "streetName",
+							"value": "Harris"
+						},
+						{
+							"key": "streetType",
+							"value": "Street"
+						},
+						{
+							"key": "suburb",
+							"value": "Pyrmont"
+						},
+						{
+							"key": "state",
+							"value": "NSW"
+						},
+						{
+							"key": "postcode",
+							"value": "2009"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Demographics v1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/demographics?level=Suburb&id=36382&types=AgeGroupOfPopulation",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"demographics"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"disabled": true
+						},
+						{
+							"key": "level",
+							"value": "Suburb"
+						},
+						{
+							"key": "id",
+							"value": "36382"
+						},
+						{
+							"key": "types",
+							"value": "AgeGroupOfPopulation",
+							"description": "AgeGroupOfPopulation, CountryOfBirth, NatureOfOccupancy, GeographicalPopulation, DwellingStructure, HousingLoanRepayment, MaritalStatus, Religion, Occupation, EducationAttendance, TransportToWork"
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Demographics v2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v2/demographics/VIC/Hawthorn/3122?types=AgeGroupOfPopulation,Rent",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v2",
+						"demographics",
+						"VIC",
+						"Hawthorn",
+						"3122"
+					],
+					"query": [
+						{
+							"key": "types",
+							"value": "AgeGroupOfPopulation,Rent",
+							"description": "AgeGroupOfPopulation, CountryOfBirth, NatureOfOccupancy, Occupation, GeographicalPopulation, DwellingStructure, EducationAttendance, HousingLoanRepayment, MaritalStatus, Religion, TransportToWork, FamilyComposition, HouseholdIncome, Rent, LabourForceStatus"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Location Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/locations/profiles/41352",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"locations",
+						"profiles",
+						"41352"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Property",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/properties/RF-8884-AK",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"properties",
+						"RF-8884-AK"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Result for a City",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/salesResults/Melbourne",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"salesResults",
+						"Melbourne"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"description": "Sydney, Melbourne, Brisbane, Adelaide, Canberra",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listings from a Sale Result",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v1/salesResults/Sydney/listings",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"v1",
+						"salesResults",
+						"Sydney",
+						"listings"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"description": "Sydney, Melbourne, Brisbane, Adelaide, Canberra",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suburb Performance Stats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.domain.com.au/v2/suburbPerformanceStatistics/NSW/Pyrmont/2009",
+					"protocol": "https",
+					"host": [
+						"api",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"",
+						"v2",
+						"suburbPerformanceStatistics",
+						"NSW",
+						"Pyrmont",
+						"2009"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "Postcode",
+							"description": "Sydney, Melbourne, Brisbane, Adelaide, Canberra",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2018",
+							"description": "Year of the source data i.e 2011, 2016",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.domain.com.au/rent/?suburb=hawthorn-vic-3122,hawthorn-east-vic-3123&excludedeposittaken=1&page=1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"domain",
+						"com",
+						"au"
+					],
+					"path": [
+						"rent",
+						""
+					],
+					"query": [
+						{
+							"key": "suburb",
+							"value": "hawthorn-vic-3122,hawthorn-east-vic-3123"
+						},
+						{
+							"key": "excludedeposittaken",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "ad8df3491f19657c4bac588628978f54",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "api_agencies_read api_listings_read api_properties_read api_addresslocators_read api_demographics_read api_locations_read api_salesresults_read api_suburbperformance_read",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{domain_client_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{domain_client_id}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://auth.domain.com.au/v1/connect/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Client Credentials Grant",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
